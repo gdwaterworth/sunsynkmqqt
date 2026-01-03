@@ -75,6 +75,8 @@ if BearerToken:
         mqttclient.publish(client,"sunsynk/"+serialitem+"/battery",getapi.GetBatteryData(BearerToken,serialitem))
         mqttclient.publish(client,"sunsynk/"+serialitem+"/load",getapi.GetLoadData(BearerToken,serialitem))
         mqttclient.publish(client,"sunsynk/"+serialitem+"/output",getapi.GetOutputData(BearerToken,serialitem))
+        mqttclient.publish(client,"sunsynk/"+serialitem+"/settings",getapi.GetInverterSettingsData(BearerToken,serialitem))
+
         print(ConsoleColor.OKGREEN + "All API calls completed successfully!" + ConsoleColor.ENDC)
 
         # Script completion time

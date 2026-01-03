@@ -254,6 +254,44 @@ def GetOutputData(Token,Serial):
         print(ConsoleColor.FAIL + "Error: Failed to parse Service Provider API response." + ConsoleColor.ENDC)         
        
 
+def GetInverterSettingsData(Token,Serial):    
+    global api_server    
+    # Inverter URL
+    #curl -s -k -X GET -H "Content-Type: application/json" -H "authorization: Bearer $ServerAPIBearerToken" https://{api_server}/api/v1/inverter/$inverter_serial/realtime/input
+    #inverter_url = f"https://{api_server}/api/v1/inverter/{Serial}/realtime/input"
+    inverter_url = f"https://{api_server}/api/v1/common/setting/{Serial}/read"
+    
+    # Headers (Fixed Bearer token format)
+    headers = {
+        "Content-Type": "application/json",
+        "Authorization": f"Bearer {Token}"
+    }
+
+    try:
+        # Corrected to use GET request
+        response = requests.get(inverter_url, headers=headers, timeout=10)
+        response.raise_for_status()
+
+        parsed_inverter_json = response.json()
+
+        if parsed_inverter_json.get('msg') == "Success":           
+            print(ConsoleColor.BOLD + "PV data fetch response: " + ConsoleColor.OKGREEN + parsed_inverter_json['msg'] + ConsoleColor.ENDC)
+            #print(parsed_inverter_json);
+            #print("PV Pac: " + ConsoleColor.OKCYAN + str(parsed_inverter_json['data']['pac']) + ConsoleColor.ENDC)
+            print(ConsoleColor.OKGREEN + "Inverter Settings fetch complete" + ConsoleColor.ENDC)
+            return parsed_inverter_json['data'] if 'data' in parsed_inverter_json else None           
+
+        else:
+            print("PV data fetch response: " + ConsoleColor.FAIL + parsed_inverter_json['msg'] + ConsoleColor.ENDC)
+
+    except requests.exceptions.Timeout:
+        print(ConsoleColor.FAIL + "Error: Request timed out while connecting to Service Provider API." + ConsoleColor.ENDC)
+
+    except requests.exceptions.RequestException as e:
+        print(ConsoleColor.FAIL + f"Error: Failed to connect to Service Provider API. {e}" + ConsoleColor.ENDC)
+
+    except json.JSONDecodeError:
+        print(ConsoleColor.FAIL + "Error: Failed to parse Service Provider API response." + ConsoleColor.ENDC)  
 
 
 
