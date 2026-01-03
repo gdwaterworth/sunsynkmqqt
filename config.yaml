@@ -1,6 +1,6 @@
 name: "SolarSynkMqtt"
 description: "Home Assistant add-on for syncing solar/inverter data from SynSynk.net into MQTT"
-version: "0.0.1alpha"
+version: "0.0.1.1alpha"
 slug: "solar_mqtt"
 init: false
 arch:
