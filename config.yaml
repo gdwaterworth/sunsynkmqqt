@@ -1,0 +1,47 @@
+name: "SolarSynkMqtt"
+description: "Home Assistant add-on for syncing solar/inverter data from SynSynk.net into MQTT"
+version: "0.0.1alpha
+slug: "solar_mqtt"
+init: false
+arch:
+  - aarch64
+  - amd64
+  - armhf
+  - armv7
+  - i386
+url: "https://github.com/gdwaterworth/sunsynkmqqt"
+homeassistant_api: true
+  
+  
+options:
+  sunsynk_user: ""
+  sunsynk_pass: ""
+  sunsynk_serial: ""
+  Refresh_rate: 300
+  Enable_HTTPS: false
+  API_Server: "api.sunsynk.net"
+  MQTT_Server: ""
+  MQTT_Port: 1883
+  MQTT_Login: ""
+  MQTT_Pass: ""
+
+  
+schema:
+  sunsynk_user: str
+  sunsynk_pass: password
+  sunsynk_serial: str
+  Refresh_rate: int
+  Enable_HTTPS: bool
+  API_Server: list(api.sunsynk.net|pv.inteless.com)
+  MQTT_Server: str?
+  MQTT_Port: int?
+  MQTT_Login: str?
+  MQTT_Pass: password
+
+
+
+
+
+
+
+
