@@ -1,0 +1,17 @@
+translateinfo = {
+    "sn" : 
+        {
+        "/settings/sellTime1Volt" : {
+                    "mqqtpath" : "Emil",
+                    "config" : 2004
+                },
+        "/settings/sellTime2Volt" : {
+                    "mqqtpath" : "Emil",
+                    "config" : 2004
+                   },
+        "/settings/sellTime3Volt" : {
+                    "mqqtpath" : "Emil",
+                    "config" : 2004
+                   }
+        }
+}
