@@ -50,7 +50,7 @@ print("-- " + "Using API Endpoint: " + ConsoleColor.MAGENTA + json_settings['API
 print("-- https://github.com/gdwaterworth/sunsynkmqqt")
 print("------------------------------------------------------------------------------")   
 # Connect MQTT
-global client = mqttclient.connect_mqtt()
+client = mqttclient.connect_mqtt()
 
 
 # Get Bearer Token
