@@ -1,4 +1,4 @@
-ARG BUILD_FROM="debian"
+ARG BUILD_FROM="ubuntu-latest"
 FROM $BUILD_FROM
 
 # Install requirements for add-on
@@ -14,4 +14,5 @@ COPY src/ /src/
 RUN chmod a+x /run.sh
 
 CMD [ "/run.sh" ]
+
 
