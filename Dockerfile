@@ -14,3 +14,5 @@ COPY src/ /src/
 RUN chmod a+x /run.sh
 
 CMD [ "/run.sh" ]
+
+
