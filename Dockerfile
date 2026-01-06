@@ -1,4 +1,4 @@
-ARG BUILD_FROM="ubuntu"
+ARG BUILD_FROM
 FROM $BUILD_FROM
 
 # Install requirements for add-on
@@ -14,6 +14,7 @@ COPY src/ /src/
 RUN chmod a+x /run.sh
 
 CMD [ "/run.sh" ]
+
 
 
 
