@@ -52,6 +52,7 @@ print("-------------------------------------------------------------------------
 # Connect MQTT
 client = mqttclient.connect_mqtt()
 
+
 # Get Bearer Token
 BearerToken=""
 try:
